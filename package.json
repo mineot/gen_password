@@ -1,11 +1,15 @@
 {
-  "name": "gen_password",
-  "version": "0.0.1",
+  "name": "@mineot/gen_password",
+  "version": "1.0.0",
   "description": "Password Generator",
   "homepage": "https://github.com/mineot/gen_password#readme",
   "license": "MIT",
   "main": "dist/gen_password.js",
   "module": "src/index.js",
+  "private": false,
+  "publishConfig": {
+    "access": "public"
+  },
   "author": {
     "name": "Fabiano Pires",
     "email": "mineot@gmail.com",
