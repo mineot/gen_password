@@ -1,0 +1,25 @@
+{
+  "name": "gen_password",
+  "version": "0.0.1",
+  "description": "Password Generator and Validator",
+  "author": "Fabiano Pires",
+  "homepage": "https://github.com/mineot/gen_password#readme",
+  "email": "mineot@gmail.com",
+  "license": "MIT",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mineot/gen_password.git"
+  },
+  "keywords": [
+    "password",
+    "generator",
+    "validator"
+  ],
+  "bugs": {
+    "url": "https://github.com/mineot/gen_password/issues"
+  }
+}
