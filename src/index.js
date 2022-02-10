@@ -1,7 +1,7 @@
-import numeric_only from "./numeric_only";
-import alpha_only from "./alpha_only";
-import alpha_numeric from "./alpha_numeric";
-import complex from "./complex";
+import numeric_only from "./helpers/numeric_only";
+import alpha_only from "./helpers/alpha_only";
+import alpha_numeric from "./helpers/alpha_numeric";
+import complex from "./helpers/complex";
 
 function get(type, dimension) {
   switch (type) {
@@ -16,8 +16,10 @@ function get(type, dimension) {
   }
 }
 
-export default function (arr, type, dimension) {
+function Generator(arr, type, dimension) {
   let password = get(type, dimension);
   while (arr.includes(password)) password = get(type, dimension);
   return password;
 }
+
+export { Generator };

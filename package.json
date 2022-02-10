@@ -2,16 +2,19 @@
   "name": "gen_password",
   "version": "0.0.1",
   "description": "Password Generator and Validator",
-  "author": "Fabiano Pires",
   "homepage": "https://github.com/mineot/gen_password#readme",
-  "email": "mineot@gmail.com",
   "license": "MIT",
   "main": "dist/gen_password.js",
   "module": "src/index.js",
-  "mode": "production",
+  "author": {
+    "name": "Fabiano Pires",
+    "email": "mineot@gmail.com",
+    "url": "https://www.mineot.com/"
+  },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "webpack --mode production"
+    "build": "webpack --mode production",
+    "serve": "ws --spa ./tests/test.html"
   },
   "repository": {
     "type": "git",
