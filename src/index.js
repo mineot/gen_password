@@ -3,7 +3,7 @@ import alpha_only from "./helpers/alpha_only";
 import alpha_numeric from "./helpers/alpha_numeric";
 import complex from "./helpers/complex";
 
-function get(type, dimension) {
+export default function (type, dimension) {
   switch (type) {
     case "numeric_only":
       return numeric_only(dimension);
@@ -15,11 +15,3 @@ function get(type, dimension) {
       return complex(dimension);
   }
 }
-
-function Generator(arr, type, dimension) {
-  let password = get(type, dimension);
-  while (arr.includes(password)) password = get(type, dimension);
-  return password;
-}
-
-export { Generator };

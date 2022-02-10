@@ -1,7 +1,7 @@
 {
   "name": "gen_password",
   "version": "0.0.1",
-  "description": "Password Generator and Validator",
+  "description": "Password Generator",
   "homepage": "https://github.com/mineot/gen_password#readme",
   "license": "MIT",
   "main": "dist/gen_password.js",
@@ -14,7 +14,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "webpack --mode production",
-    "serve": "ws --spa ./tests/test.html"
+    "serve": "webpack-dev-server --open --mode development"
   },
   "repository": {
     "type": "git",
