@@ -16,7 +16,7 @@
     "url": "https://www.mineot.com/"
   },
   "scripts": {
-    "test": "npm run build && jest",
+    "test": "jest",
     "build": "webpack --mode production"
   },
   "jest": {

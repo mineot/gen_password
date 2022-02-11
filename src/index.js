@@ -14,6 +14,6 @@ export default function (type, dimension) {
     case "complex":
       return complex(dimension);
     default:
-      throw new Error("generate.password.type.not_found");
+      throw "generate.password.invalid_type";
   }
 }
