@@ -33,6 +33,6 @@ export default function (dimension) {
     case 20:
       return calc(twenty);
     default:
-      throw new Error("generate.password.number_only.dimension.not_found");
+      throw "generate.password.number_only.invalid_dimension";
   }
 }

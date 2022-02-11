@@ -13,5 +13,7 @@ export default function (type, dimension) {
       return alpha_numeric(dimension);
     case "complex":
       return complex(dimension);
+    default:
+      throw new Error("generate.password.type.not_found");
   }
 }
