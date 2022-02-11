@@ -42,24 +42,24 @@ function get(x) {
 export default function (dimension) {
   switch (dimension) {
     case 4:
-      return calc(four);
+      return get(four);
     case 6:
-      return calc(six);
+      return get(six);
     case 8:
-      return calc(eigth);
+      return get(eigth);
     case 10:
-      return calc(ten);
+      return get(ten);
     case 12:
-      return calc(twelve);
+      return get(twelve);
     case 14:
-      return calc(fourteen);
+      return get(fourteen);
     case 16:
-      return calc(sixteen);
+      return get(sixteen);
     case 18:
-      return calc(eighteenteen);
+      return get(eighteenteen);
     case 20:
-      return calc(twenty);
+      return get(twenty);
     default:
-      throw new Error("generate.password.alpha_numeric.dimension.not_found");
+      throw "generate.password.alpha_numeric.invalid_dimension";
   }
 }
