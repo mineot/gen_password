@@ -3,10 +3,15 @@ const _ = require("lodash");
 const upper = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
 const lower = upper.toLowerCase();
 
-const four_min_max = { upper: 1, lower: 1, number: 2 };
-const six_min_max = { upper: 2, lower: 2, number: 2 };
-const eigth_min_max = { upper: 2, lower: 3, number: 3 };
-const twelve_min_max = { upper: 4, lower: 4, number: 4 };
+const four = { upper: 1, lower: 1, number: 2 };
+const six = { upper: 2, lower: 2, number: 2 };
+const eigth = { upper: 2, lower: 3, number: 3 };
+const ten = { upper: 4, lower: 4, number: 2 };
+const twelve = { upper: 4, lower: 4, number: 4 };
+const fourteen = { upper: 5, lower: 5, number: 4 };
+const sixteen = { upper: 5, lower: 5, number: 6 };
+const eighteenteen = { upper: 6, lower: 6, number: 6 };
+const twenty = { upper: 7, lower: 7, number: 6 };
 
 function calc(min, max) {
   return parseInt(Math.random() * (max - min) + min).toFixed(0);
@@ -14,7 +19,7 @@ function calc(min, max) {
 
 function process_alpha(arr, data, key, x) {
   for (let idx = 0; idx < x[key]; idx++) {
-    arr.push(data.charAt(calc(0, 25)));
+    arr.push(data.charAt(calc(0, data.length - 1)));
   }
 }
 
@@ -37,13 +42,23 @@ function get(x) {
 export default function (dimension) {
   switch (dimension) {
     case 4:
-      return get(four_min_max);
+      return calc(four);
     case 6:
-      return get(six_min_max);
+      return calc(six);
     case 8:
-      return get(eigth_min_max);
+      return calc(eigth);
+    case 10:
+      return calc(ten);
     case 12:
-      return get(twelve_min_max);
+      return calc(twelve);
+    case 14:
+      return calc(fourteen);
+    case 16:
+      return calc(sixteen);
+    case 18:
+      return calc(eighteenteen);
+    case 20:
+      return calc(twenty);
     default:
       throw new Error("generate.password.alpha_numeric.dimension.not_found");
   }

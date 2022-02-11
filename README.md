@@ -13,15 +13,12 @@ Params References:
 Is mandatory inform the type and dimension, see below what they mean
 
 - The `type` determines with which the password will be built, follow the list of available options:
-  - numeric_only
-  - alpha_only
-  - alpha_numeric
-  - complex
+  - `numeric_only`: generate a password with numbers only
+  - `alpha_only`: generate a password with upper and lower letters only
+  - `alpha_numeric`: generate a password with upper letters, lower letters and numbers
+  - `complex`: generate a password with upper letters, lower letters, numbers and special chars
 - The `dimension` is the size that the password will be exactly, for that, enter a number within the available ones below:
-  - 4
-  - 6
-  - 8
-  - 12 
+  - 4, 6, 8, 10, 12, 14, 16, 18 and 20
 
 Code example:
 

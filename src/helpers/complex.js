@@ -2,12 +2,17 @@ const _ = require("lodash");
 
 const upper = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
 const lower = upper.toLowerCase();
-const chars = "@#!$+&";
+const chars = "@#!$+&%*|:?";
 
-const four_min_max = { upper: 1, lower: 1, number: 1, char: 1 };
-const six_min_max = { upper: 1, lower: 2, number: 2, char: 1 };
-const eigth_min_max = { upper: 2, lower: 2, number: 2, char: 2 };
-const twelve_min_max = { upper: 3, lower: 3, number: 3, char: 3 };
+const four = { upper: 1, lower: 1, number: 1, char: 1 };
+const six = { upper: 1, lower: 2, number: 2, char: 1 };
+const eigth = { upper: 2, lower: 2, number: 2, char: 2 };
+const ten = { upper: 3, lower: 3, number: 2, char: 2 };
+const twelve = { upper: 3, lower: 3, number: 3, char: 3 };
+const fourteen = { upper: 4, lower: 4, number: 4, char: 2 };
+const sixteen = { upper: 4, lower: 4, number: 4, char: 4 };
+const eighteenteen = { upper: 5, lower: 5, number: 5, char: 3 };
+const twenty = { upper: 5, lower: 5, number: 5, char: 5 };
 
 function calc(min, max) {
   return parseInt(Math.random() * (max - min) + min).toFixed(0);
@@ -15,7 +20,7 @@ function calc(min, max) {
 
 function process_alpha(arr, data, key, x) {
   for (let idx = 0; idx < x[key]; idx++) {
-    arr.push(data.charAt(calc(0, 25)));
+    arr.push(data.charAt(calc(0, data.length - 1)));
   }
 }
 
@@ -27,7 +32,7 @@ function process_number(arr, x) {
 
 function process_char(arr, x) {
   for (let idx = 0; idx < x.char; idx++) {
-    arr.push(chars.charAt(calc(0, 5)));
+    arr.push(chars.charAt(calc(0, chars.length - 1)));
   }
 }
 
@@ -45,13 +50,23 @@ function get(x) {
 export default function (dimension) {
   switch (dimension) {
     case 4:
-      return get(four_min_max);
+      return calc(four);
     case 6:
-      return get(six_min_max);
+      return calc(six);
     case 8:
-      return get(eigth_min_max);
+      return calc(eigth);
+    case 10:
+      return calc(ten);
     case 12:
-      return get(twelve_min_max);
+      return calc(twelve);
+    case 14:
+      return calc(fourteen);
+    case 16:
+      return calc(sixteen);
+    case 18:
+      return calc(eighteenteen);
+    case 20:
+      return calc(twenty);
     default:
       throw new Error("generate.password.complex.dimension.not_found");
   }
