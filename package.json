@@ -16,9 +16,8 @@
     "url": "https://www.mineot.com/"
   },
   "scripts": {
-    "test": "jest",
-    "build": "webpack --mode production",
-    "serve": "webpack-dev-server --open --mode development"
+    "test": "npm run build && jest",
+    "build": "webpack --mode production"
   },
   "jest": {
     "transform": {
