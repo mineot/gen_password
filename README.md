@@ -1,16 +1,18 @@
 # gen_password
 
-The Password Generator
+Tool to generate passwords, easily
 
 ## Instalation
 
-- `npm i @mineot/gen_password`
+```
+npm i @mineot/gen_password
+```
 
 ## Use
 
 Params References:
 
-Is mandatory inform the type and dimension, see below what they mean
+Is mandatory inform the `type` and `dimension`, see below what they mean:
 
 - The `type` determines with which the password will be built, follow the list of available options:
   - `numeric_only`: generate a password with numbers only
@@ -32,3 +34,10 @@ console.log(password);
 ## License
 
 [MIT License](./LICENSE)
+
+## Donate
+
+If you wanna contribute with this project, feel free to donate the value that you desire, thanks a lot!
+
+- Bitcoin: bc1q02u42ky4y2u8apd9vuhglmgmsh2402w24exnwx
+- Pix (for brazilians): 74d3034f-22f8-46c6-91a8-8e2eaecf0225
