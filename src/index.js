@@ -1,7 +1,7 @@
-import numeric_only from "./helpers/numeric_only";
-import alpha_only from "./helpers/alpha_only";
-import alpha_numeric from "./helpers/alpha_numeric";
-import complex from "./helpers/complex";
+import numeric_only from "@/helpers/numeric_only";
+import alpha_only from "@/helpers/alpha_only";
+import alpha_numeric from "@/helpers/alpha_numeric";
+import complex from "@/helpers/complex";
 
 export default function (type, dimension) {
   switch (type) {

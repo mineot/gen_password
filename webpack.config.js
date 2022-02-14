@@ -9,4 +9,9 @@ module.exports = {
       type: "umd",
     },
   },
+  resolve: {
+    alias: {
+      "@": path.resolve(__dirname, "src/"),
+    },
+  },
 };

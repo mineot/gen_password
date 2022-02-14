@@ -1,6 +1,6 @@
 {
   "name": "@mineot/gen_password",
-  "version": "1.2.0",
+  "version": "1.2.1",
   "description": "Password Generator",
   "homepage": "https://github.com/mineot/gen_password#readme",
   "license": "MIT",
@@ -20,8 +20,15 @@
     "build": "webpack --mode production"
   },
   "jest": {
+    "testEnvironment": "jsdom",
     "transform": {
       "^.+\\.[t|j]sx?$": "babel-jest"
+    },
+    "moduleNameMapper": {
+      "@/(.*)$": "<rootDir>/src/$1"
+    },
+    "globals": {
+      "window": {}
     }
   },
   "repository": {
