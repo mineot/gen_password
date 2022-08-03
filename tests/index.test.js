@@ -1,7 +1,9 @@
-import gen_password from "./../src";
+import { Dimensions, GenPassword, Types } from "./../src";
 
-test("index - invalid type", () => {
-  expect(() => {
-    gen_password("ABC", 999);
-  }).toThrow("generate.password.invalid_type");
+test("Index - Invalid Type", async () => {
+  await expect(() => GenPassword(999, 999)).rejects.toEqual("GenPassword Error: Invalid Type");
+});
+
+test("Index - Invalid Dimension", async () => {
+  expect(() => GenPassword(Types.ONLY_NUMBERS, 999)).rejects.toEqual("GenPassword Error: Invalid Dimension");
 });

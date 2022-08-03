@@ -1,19 +1,14 @@
-import numeric_only from "@/helpers/numeric_only";
-import alpha_only from "@/helpers/alpha_only";
-import alpha_numeric from "@/helpers/alpha_numeric";
-import complex from "@/helpers/complex";
+import { Types, Dimensions, ValidateType, ValidateDimension } from "@/helpers/enums";
 
-export default function (type, dimension) {
-  switch (type) {
-    case "numeric_only":
-      return numeric_only(dimension);
-    case "alpha_only":
-      return alpha_only(dimension);
-    case "alpha_numeric":
-      return alpha_numeric(dimension);
-    case "complex":
-      return complex(dimension);
-    default:
-      throw "generate.password.invalid_type";
+const GenPassword = async (type, dimension) => {
+  try {
+    await ValidateType(type);
+    await ValidateDimension(dimension);
+
+    return true;
+  } catch (err) {
+    throw `GenPassword Error: ${err}`;
   }
-}
+};
+
+export { GenPassword, Types, Dimensions };
