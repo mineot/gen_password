@@ -1,5 +1,7 @@
-import { Types, Dimensions, ValidateType, ValidateDimension } from "@/helpers/enums";
-import OnlyNumbers from "@/generators/only_numbers";
+import { Types, Dimensions } from "@/helpers/enumerators";
+import { ValidateType, ValidateDimension } from "@/helpers/validators";
+
+import { OnlyNumbers } from "@/generators";
 
 const GenPassword = async (type, dimension) => {
   try {

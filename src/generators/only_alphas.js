@@ -40,7 +40,7 @@ function get(x) {
   return _.shuffle(letters).join("");
 }
 
-export default function (dimension) {
+export default async function (dimension) {
   switch (dimension) {
     case 4:
       return get(four);
@@ -60,7 +60,5 @@ export default function (dimension) {
       return get(eighteenteen);
     case 20:
       return get(twenty);
-    default:
-      throw "generate.password.alpha_only.invalid_dimension";
   }
 }

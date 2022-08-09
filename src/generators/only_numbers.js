@@ -1,4 +1,5 @@
-import { Dimensions } from "@/helpers/enums";
+import { Dimensions } from "@/helpers/enumerators";
+import { Calculate } from "@/helpers/calcs";
 
 const four = { min: 1000, max: 9999 };
 const six = { min: 100000, max: 999999 };
@@ -10,30 +11,26 @@ const sixteen = { min: fourteen.min * 100, max: fourteen.max * 100 };
 const eighteenteen = { min: sixteen.min * 100, max: sixteen.max * 100 };
 const twenty = { min: eighteenteen.min * 100, max: eighteenteen.max * 100 };
 
-function calculate(x) {
-  return parseInt(Math.random() * (x.max - x.min) + x.min).toFixed(0);
-}
-
 export default async function (dimension) {
   switch (dimension) {
     case Dimensions.FOUR:
-      return calculate(four);
+      return Calculate(four);
     case Dimensions.SIX:
-      return calculate(six);
+      return Calculate(six);
     case Dimensions.EIGTH:
-      return calculate(eigth);
+      return Calculate(eigth);
     case Dimensions.TEN:
-      return calculate(ten);
+      return Calculate(ten);
     case Dimensions.TWELVE:
-      return calculate(twelve);
+      return Calculate(twelve);
     case Dimensions.FOURTEEN:
-      return calculate(fourteen);
+      return Calculate(fourteen);
     case Dimensions.SIXTEEN:
-      return calculate(sixteen);
+      return Calculate(sixteen);
     case Dimensions.EIGHTEENTEEN:
-      return calculate(eighteenteen);
+      return Calculate(eighteenteen);
     case Dimensions.TWENTY:
-      return calculate(twenty);
+      return Calculate(twenty);
   }
   return null;
 }
