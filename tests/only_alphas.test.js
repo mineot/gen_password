@@ -1,21 +1,20 @@
-import { GenPassword } from "../src";
+import { GenPassword, Types, Dimensions } from "../src";
+import { UpperLetters, LowerLetters } from "@/helpers/alphas";
 
-// const upper = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
-// const lower = upper.toLowerCase();
+const check = (result, target) => result.split("").filter((el) => target.split("").includes(el));
+const upper = (result) => check(result, UpperLetters);
+const lower = (result) => check(result, LowerLetters);
 
-// function get(data) {
-//   return {
-//     upper: data.split("").filter((el) => upper.split("").includes(el)),
-//     lower: data.split("").filter((el) => lower.split("").includes(el)),
-//   };
-// }
+const Test = async (dimension) => {
+  const result = await GenPassword(Types.ONLY_ALPHA, dimension);
+  console.log(result, result.length);
+  expect(result).toHaveLength(4);
+  expect(upper(result)).toHaveLength(2);
+  expect(lower(result)).toHaveLength(2);
+};
 
-test("Only Alpha - dimension 4", async () => {
-//   const result = gen_password("alpha_only", 4);
-//   const exist = get(result);
-//   expect(result).toHaveLength(4);
-//   expect(exist.upper).toHaveLength(2);
-//   expect(exist.lower).toHaveLength(2);
+test("Only Alpha - Dimensions.FOUR", async () => {
+  await Test(Dimensions.FOUR);
 });
 
 // test("Only Alpha - dimension 6", () => {
