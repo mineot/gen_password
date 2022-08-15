@@ -1,36 +1,18 @@
-import { Dimensions } from "@/helpers/enumerators";
-import { Calculate } from "@/helpers/calcs";
+import { Dimensions } from "@/models/dimensions";
 
-const four = { min: 1000, max: 9999 };
-const six = { min: 100000, max: 999999 };
-const eigth = { min: 10000000, max: 99999999 };
-const ten = { min: 1000000000, max: 9999999999 };
-const twelve = { min: 100000000000, max: 999999999999 };
-const fourteen = { min: 10000000000000, max: 99999999999999 };
-const sixteen = { min: fourteen.min * 100, max: fourteen.max * 100 };
-const eighteenteen = { min: sixteen.min * 100, max: sixteen.max * 100 };
-const twenty = { min: eighteenteen.min * 100, max: eighteenteen.max * 100 };
+const values = {
+  [Dimensions.FOUR]: { min: 1000, max: 9999 },
+  [Dimensions.SIX]: { min: 100000, max: 999999 },
+  [Dimensions.EIGTH]: { min: 10000000, max: 99999999 },
+  [Dimensions.TEN]: { min: 1000000000, max: 9999999999 },
+  [Dimensions.TWELVE]: { min: 100000000000, max: 999999999999 },
+  [Dimensions.FOURTEEN]: { min: 10000000000000, max: 99999999999999 },
+};
 
-export default async function (dimension) {
-  switch (dimension) {
-    case Dimensions.FOUR:
-      return Calculate(four);
-    case Dimensions.SIX:
-      return Calculate(six);
-    case Dimensions.EIGTH:
-      return Calculate(eigth);
-    case Dimensions.TEN:
-      return Calculate(ten);
-    case Dimensions.TWELVE:
-      return Calculate(twelve);
-    case Dimensions.FOURTEEN:
-      return Calculate(fourteen);
-    case Dimensions.SIXTEEN:
-      return Calculate(sixteen);
-    case Dimensions.EIGHTEENTEEN:
-      return Calculate(eighteenteen);
-    case Dimensions.TWENTY:
-      return Calculate(twenty);
-  }
-  return null;
-}
+values[Dimensions.SIXTEEN] = { min: values[Dimensions.FOURTEEN].min * 100, max: values[Dimensions.FOURTEEN].max * 100 };
+values[Dimensions.EIGHTEENTEEN] = { min: values[Dimensions.SIXTEEN].min * 100, max: values[Dimensions.SIXTEEN].max * 100 };
+values[Dimensions.TWENTY] = { min: values[Dimensions.EIGHTEENTEEN].min * 100, max: values[Dimensions.EIGHTEENTEEN].max * 100 };
+
+const calc = ({ min, max }) => parseInt(Math.random() * (max - min) + min).toFixed(0);
+
+export default async (dimension) => calc(values[dimension]);
