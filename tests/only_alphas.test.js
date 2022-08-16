@@ -1,21 +1,17 @@
-// import { GenPassword, Types, Dimensions } from "../src";
-// import { UpperLetters, LowerLetters } from "@/helpers/alphas";
-
-// const check = (result, target) => result.split("").filter((el) => target.split("").includes(el));
-// const upper = (result) => check(result, UpperLetters);
-// const lower = (result) => check(result, LowerLetters);
+import gen from "../src/generators/only_alpha";
 
 // const Test = async (dimension) => {
-//   const result = await GenPassword(Types.ONLY_ALPHA, dimension);
-//   console.log(result, result.length);
-//   expect(result).toHaveLength(4);
-//   expect(upper(result)).toHaveLength(2);
-//   expect(lower(result)).toHaveLength(2);
+//   //   const result = await GenPassword(Types.ONLY_ALPHA, dimension);
+//   //   console.log(result, result.length);
+//   //   expect(result).toHaveLength(4);
+//   //   expect(upper(result)).toHaveLength(2);
+//   //   expect(lower(result)).toHaveLength(2);
 // };
 
-// test("Only Alpha - Dimensions.FOUR", async () => {
-//   await Test(Dimensions.FOUR);
-// });
+test("Only Alpha - Dimensions.FOUR", async () => {
+  gen(0);
+  // await Test(Dimensions.FOUR);
+});
 
 // // test("Only Alpha - dimension 6", () => {
 // //   const result = gen_password("alpha_only", 6);
@@ -81,8 +77,8 @@
 // //   expect(exist.lower).toHaveLength(10);
 // // });
 
-test("Only Alpha - invalid dimension", () => {
-  // //   expect(() => {
-  // //     gen_password("alpha_only", 999);
-  // //   }).toThrow("generate.password.alpha_only.invalid_dimension");
-});
+// test("Only Alpha - invalid dimension", () => {
+//   // //   expect(() => {
+//   // //     gen_password("alpha_only", 999);
+//   // //   }).toThrow("generate.password.alpha_only.invalid_dimension");
+// });
