@@ -1,6 +1,6 @@
 const Types = {
   ONLY_NUMBERS: 1,
-  ONLY_ALPHA: 2,
+  ONLY_ALPHAS: 2,
   ALPHA_NUMERIC: 3,
   COMPLEX: 4,
 };
