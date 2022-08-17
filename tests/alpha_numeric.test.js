@@ -1,100 +1,48 @@
-// import gen_password from "../src";
+import { Dimensions } from '@/models/dimensions';
+import gen from "../src/generators/alpha_numeric";
 
-// const upper = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
-// const lower = upper.toLowerCase();
-// const numbers = "0123456789";
+const data = {
+  base: {
+    upper: "ABCDEFGHIJKLMNOPQRSTUVWXYZ",
+    lower: "abcdefghijklmnopqrstuvwxyz",
+    number: "0123456789",
+  },
+  values: {
+    [Dimensions.FOUR]: { upper: 1, lower: 1, number: 2 },
+    [Dimensions.SIX]: { upper: 2, lower: 2, number: 2 },
+    [Dimensions.EIGTH]: { upper: 2, lower: 3, number: 3 },
+    [Dimensions.TEN]: { upper: 4, lower: 4, number: 2 },
+    [Dimensions.TWELVE]: { upper: 4, lower: 4, number: 4 },
+    [Dimensions.FOURTEEN]: { upper: 5, lower: 5, number: 4 },
+    [Dimensions.SIXTEEN]: { upper: 5, lower: 5, number: 6 },
+    [Dimensions.EIGHTEENTEEN]: { upper: 6, lower: 6, number: 6 },
+    [Dimensions.TWENTY]: { upper: 7, lower: 7, number: 6 },
+  }
+}
 
-// function get(data) {
-//   return {
-//     upper: data.split("").filter((el) => upper.split("").includes(el)),
-//     lower: data.split("").filter((el) => lower.split("").includes(el)),
-//     number: data.split("").filter((el) => numbers.split("").includes(el)),
-//   };
-// }
+const Get = (result) => {
+  return {
+    upper: result.split("").filter((el) => data.base.upper.split("").includes(el)),
+    lower: result.split("").filter((el) => data.base.lower.split("").includes(el)),
+    number: result.split("").filter((el) => data.base.number.split("").includes(el)),
+  };
+}
 
-test("alpha_numeric - dimension 4", () => {
-  //   const result = gen_password("alpha_numeric", 4);
-  //   const exist = get(result);
-  //   expect(result).toHaveLength(4);
-  //   expect(exist.upper).toHaveLength(1);
-  //   expect(exist.lower).toHaveLength(1);
-  //   expect(exist.number).toHaveLength(2);
-});
+async function Test(dimension) {
+  const result = await gen(dimension);
+  const verify = Get(result);
+  expect(result).toHaveLength(dimension);
+  expect(verify.upper).toHaveLength(data.values[dimension].upper);
+  expect(verify.lower).toHaveLength(data.values[dimension].lower);
+  expect(verify.number).toHaveLength(data.values[dimension].number);
+}
 
-// test("alpha_numeric - dimension 6", () => {
-//   const result = gen_password("alpha_numeric", 6);
-//   const exist = get(result);
-//   expect(result).toHaveLength(6);
-//   expect(exist.upper).toHaveLength(2);
-//   expect(exist.lower).toHaveLength(2);
-//   expect(exist.number).toHaveLength(2);
-// });
-
-// test("alpha_numeric - dimension 8", () => {
-//   const result = gen_password("alpha_numeric", 8);
-//   const exist = get(result);
-//   expect(result).toHaveLength(8);
-//   expect(exist.upper).toHaveLength(2);
-//   expect(exist.lower).toHaveLength(3);
-//   expect(exist.number).toHaveLength(3);
-// });
-
-// test("alpha_numeric - dimension 10", () => {
-//   const result = gen_password("alpha_numeric", 10);
-//   const exist = get(result);
-//   expect(result).toHaveLength(10);
-//   expect(exist.upper).toHaveLength(4);
-//   expect(exist.lower).toHaveLength(4);
-//   expect(exist.number).toHaveLength(2);
-// });
-
-// test("alpha_numeric - dimension 12", () => {
-//   const result = gen_password("alpha_numeric", 12);
-//   const exist = get(result);
-//   expect(result).toHaveLength(12);
-//   expect(exist.upper).toHaveLength(4);
-//   expect(exist.lower).toHaveLength(4);
-//   expect(exist.number).toHaveLength(4);
-// });
-
-// test("alpha_numeric - dimension 14", () => {
-//   const result = gen_password("alpha_numeric", 14);
-//   const exist = get(result);
-//   expect(result).toHaveLength(14);
-//   expect(exist.upper).toHaveLength(5);
-//   expect(exist.lower).toHaveLength(5);
-//   expect(exist.number).toHaveLength(4);
-// });
-
-// test("alpha_numeric - dimension 16", () => {
-//   const result = gen_password("alpha_numeric", 16);
-//   const exist = get(result);
-//   expect(result).toHaveLength(16);
-//   expect(exist.upper).toHaveLength(5);
-//   expect(exist.lower).toHaveLength(5);
-//   expect(exist.number).toHaveLength(6);
-// });
-
-// test("alpha_numeric - dimension 18", () => {
-//   const result = gen_password("alpha_numeric", 18);
-//   const exist = get(result);
-//   expect(result).toHaveLength(18);
-//   expect(exist.upper).toHaveLength(6);
-//   expect(exist.lower).toHaveLength(6);
-//   expect(exist.number).toHaveLength(6);
-// });
-
-// test("alpha_numeric - dimension 20", () => {
-//   const result = gen_password("alpha_numeric", 20);
-//   const exist = get(result);
-//   expect(result).toHaveLength(20);
-//   expect(exist.upper).toHaveLength(7);
-//   expect(exist.lower).toHaveLength(7);
-//   expect(exist.number).toHaveLength(6);
-// });
-
-// test("alpha_numeric - invalid dimension", () => {
-//   expect(() => {
-//     gen_password("alpha_numeric", 999);
-//   }).toThrow("generate.password.alpha_numeric.invalid_dimension");
-// });
+test("Alpha Numeric - Dimensions.FOUR", async () => Test(Dimensions.FOUR));
+test("Alpha Numeric - Dimensions.SIX", async () => Test(Dimensions.SIX));
+test("Alpha Numeric - Dimensions.EIGTH", async () => Test(Dimensions.EIGTH));
+test("Alpha Numeric - Dimensions.TEN", async () => Test(Dimensions.TEN));
+test("Alpha Numeric - Dimensions.TWELVE", async () => Test(Dimensions.TWELVE));
+test("Alpha Numeric - Dimensions.FOURTEEN", async () => Test(Dimensions.FOURTEEN));
+test("Alpha Numeric - Dimensions.SIXTEEN", async () => Test(Dimensions.SIXTEEN));
+test("Alpha Numeric - Dimensions.EIGHTEENTEEN", async () => Test(Dimensions.EIGHTEENTEEN));
+test("Alpha Numeric - Dimensions.TWENTY", async () => Test(Dimensions.TWENTY)); 
