@@ -1,73 +1,48 @@
-const _ = require("lodash");
+import { Dimensions } from "@/models/dimensions";
 
-const upper = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
-const lower = upper.toLowerCase();
-const chars = "@#!$+&%*|:?";
+const lodash = require("lodash");
 
-const four = { upper: 1, lower: 1, number: 1, char: 1 };
-const six = { upper: 1, lower: 2, number: 2, char: 1 };
-const eigth = { upper: 2, lower: 2, number: 2, char: 2 };
-const ten = { upper: 3, lower: 3, number: 2, char: 2 };
-const twelve = { upper: 3, lower: 3, number: 3, char: 3 };
-const fourteen = { upper: 4, lower: 4, number: 4, char: 2 };
-const sixteen = { upper: 4, lower: 4, number: 4, char: 4 };
-const eighteenteen = { upper: 5, lower: 5, number: 5, char: 3 };
-const twenty = { upper: 5, lower: 5, number: 5, char: 5 };
-
-function calc(min, max) {
-  return parseInt(Math.random() * (max - min) + min).toFixed(0);
-}
-
-function process_alpha(arr, data, key, x) {
-  for (let idx = 0; idx < x[key]; idx++) {
-    arr.push(data.charAt(calc(0, data.length - 1)));
+const data = {
+  base: {
+    upper: "ABCDEFGHIJKLMNOPQRSTUVWXYZ",
+    lower: "abcdefghijklmnopqrstuvwxyz",
+    chars: "@#!$+&%*|:?)(][}{;,.",
+    num: 10,
+    len: 26,
+    chs: 20,
+  },
+  values: {
+    [Dimensions.FOUR]: { upper: 1, lower: 1, number: 1, char: 1 },
+    [Dimensions.SIX]: { upper: 1, lower: 2, number: 2, char: 1 },
+    [Dimensions.EIGTH]: { upper: 2, lower: 2, number: 2, char: 2 },
+    [Dimensions.TEN]: { upper: 3, lower: 3, number: 2, char: 2 },
+    [Dimensions.TWELVE]: { upper: 3, lower: 3, number: 3, char: 3 },
+    [Dimensions.FOURTEEN]: { upper: 4, lower: 4, number: 4, char: 2 },
+    [Dimensions.SIXTEEN]: { upper: 4, lower: 4, number: 4, char: 4 },
+    [Dimensions.EIGHTEENTEEN]: { upper: 5, lower: 5, number: 5, char: 3 },
+    [Dimensions.TWENTY]: { upper: 5, lower: 5, number: 5, char: 5 },
   }
 }
 
-function process_number(arr, x) {
-  for (let idx = 0; idx < x.number; idx++) {
-    arr.push(calc(0, 9));
-  }
+const index = (val) => parseInt(Math.random() * val);
+const number = () => index(data.base.num);
+const letter = (alpha) => alpha.charAt(index(data.base.len));
+const char = (alpha) => alpha.charAt(index(data.base.chs));
+
+const get_numbers = (count) => Array(count).fill().map(() => number());
+const get_uppers = (count) => Array(count).fill().map(() => letter(data.base.upper));
+const get_lowers = (count) => Array(count).fill().map(() => letter(data.base.lower));
+const get_chars = (count) => Array(count).fill().map(() => char(data.base.chars));
+
+const builder = ({ upper, lower, number, char }) => {
+  return [
+    ...get_uppers(upper),
+    ...get_lowers(lower),
+    ...get_numbers(number),
+    ...get_chars(char),
+  ]
 }
 
-function process_char(arr, x) {
-  for (let idx = 0; idx < x.char; idx++) {
-    arr.push(chars.charAt(calc(0, chars.length - 1)));
-  }
-}
-
-function get(x) {
-  const letters = [];
-
-  process_alpha(letters, upper, "upper", x);
-  process_alpha(letters, lower, "lower", x);
-  process_number(letters, x);
-  process_char(letters, x);
-
-  return _.shuffle(letters).join("");
-}
-
-export default function (dimension) {
-  switch (dimension) {
-    case 4:
-      return get(four);
-    case 6:
-      return get(six);
-    case 8:
-      return get(eigth);
-    case 10:
-      return get(ten);
-    case 12:
-      return get(twelve);
-    case 14:
-      return get(fourteen);
-    case 16:
-      return get(sixteen);
-    case 18:
-      return get(eighteenteen);
-    case 20:
-      return get(twenty);
-    default:
-      throw "generate.password.complex.invalid_dimension";
-  }
+export default async function (dimension) {
+  return lodash.shuffle(builder(data.values[dimension])).join("")
 }
