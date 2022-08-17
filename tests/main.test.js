@@ -1,5 +1,14 @@
 import { GenPassword, Types, Dimensions, GenPasswordError } from "@/index"
 
+test("abc", async () => {
+  try {
+    await GenPassword(9, 9);
+  } catch (err) {
+    // criar uma lista de 
+    console.log(err.stack);
+  }
+});
+
 test("Invalid Type", async () => {
   await expect(GenPassword(9, 9)).rejects.toEqual(
     new GenPasswordError(
