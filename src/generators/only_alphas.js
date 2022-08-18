@@ -31,9 +31,12 @@ const push_letters = (alpha, count) =>
     .map(() => get_letter(alpha));
 
 const build_list = (count) => {
-  return push_letters(data.base.upper, count).concat(push_letters(data.base.lower, count));
+  const list = push_letters(data.base.upper, count)
+  return list.concat(push_letters(data.base.lower, count));
 };
 
 export default async function (dimension) {
-  return lodash.shuffle(build_list(data.values[dimension])).join("");
+  return lodash.shuffle(
+    build_list(data.values[dimension])
+  ).join("");
 }

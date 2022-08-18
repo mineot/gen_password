@@ -25,22 +25,38 @@ const data = {
 }
 
 const index = (val) => parseInt(Math.random() * val);
+
 const number = () => index(data.base.num);
+
 const letter = (alpha) => alpha.charAt(index(data.base.len));
+
 const char = (alpha) => alpha.charAt(index(data.base.chs));
 
-const get_numbers = (count) => Array(count).fill().map(() => number());
-const get_uppers = (count) => Array(count).fill().map(() => letter(data.base.upper));
-const get_lowers = (count) => Array(count).fill().map(() => letter(data.base.lower));
-const get_chars = (count) => Array(count).fill().map(() => char(data.base.chars));
+const get_numbers = (count) =>
+  Array(count)
+    .fill()
+    .map(() => number());
+
+const get_uppers = (count) =>
+  Array(count)
+    .fill()
+    .map(() => letter(data.base.upper));
+
+const get_lowers = (count) =>
+  Array(count)
+    .fill()
+    .map(() => letter(data.base.lower));
+
+const get_chars = (count) =>
+  Array(count)
+    .fill()
+    .map(() => char(data.base.chars));
 
 const builder = ({ upper, lower, number, char }) => {
-  return [
-    ...get_uppers(upper),
-    ...get_lowers(lower),
-    ...get_numbers(number),
-    ...get_chars(char),
-  ]
+  let list = get_uppers(upper);
+  list = list.concat(get_lowers(lower));
+  list = list.concat(get_numbers(number));
+  return list.concat(get_chars(char));
 }
 
 export default async function (dimension) {

@@ -23,21 +23,34 @@ const data = {
 }
 
 const index = (val) => parseInt(Math.random() * val);
+
 const number = () => index(data.base.num);
+
 const letter = (alpha) => alpha.charAt(index(data.base.len));
 
-const get_numbers = (count) => Array(count).fill().map(() => number());
-const get_uppers = (count) => Array(count).fill().map(() => letter(data.base.upper));
-const get_lowers = (count) => Array(count).fill().map(() => letter(data.base.lower));
+const get_numbers = (count) =>
+  Array(count)
+    .fill()
+    .map(() => number());
+
+const get_uppers = (count) =>
+  Array(count)
+    .fill()
+    .map(() => letter(data.base.upper));
+
+const get_lowers = (count) =>
+  Array(count)
+    .fill()
+    .map(() => letter(data.base.lower));
 
 const builder = ({ upper, lower, number }) => {
-  return [
-    ...get_uppers(upper),
-    ...get_lowers(lower),
-    ...get_numbers(number),
-  ]
+  let list = get_uppers(upper);
+  list = list.concat(get_lowers(lower));
+  return list.concat(get_numbers(number));
 }
 
 export default async function (dimension) {
-  return lodash.shuffle(builder(data.values[dimension])).join("")
+  return lodash.shuffle(
+    builder(data.values[dimension])
+  ).join("")
 }
