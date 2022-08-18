@@ -1,15 +1,15 @@
 import { ERRORS } from "@/models/errors";
 
 const Dimensions = {
-  FOUR: 204,
-  SIX: 206,
-  EIGTH: 208,
-  TEN: 210,
-  TWELVE: 212,
-  FOURTEEN: 214,
-  SIXTEEN: 216,
-  EIGHTEENTEEN: 218,
-  TWENTY: 220,
+  FOUR: 4,
+  SIX: 6,
+  EIGTH: 8,
+  TEN: 10,
+  TWELVE: 12,
+  FOURTEEN: 14,
+  SIXTEEN: 16,
+  EIGHTEENTEEN: 18,
+  TWENTY: 20,
 };
 
 const DimensionValidator = async (dimension) => {

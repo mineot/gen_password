@@ -1,5 +1,5 @@
 import { Dimensions } from "../src/models/dimensions";
-import gen from "./../src/generators/only_numbers";
+import gen from "../src/generators/only_numbers";
 
 async function Test(dimension) {
   const result = await gen(dimension);

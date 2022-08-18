@@ -13,6 +13,8 @@ values[Dimensions.SIXTEEN] = { min: values[Dimensions.FOURTEEN].min * 100, max: 
 values[Dimensions.EIGHTEENTEEN] = { min: values[Dimensions.SIXTEEN].min * 100, max: values[Dimensions.SIXTEEN].max * 100 };
 values[Dimensions.TWENTY] = { min: values[Dimensions.EIGHTEENTEEN].min * 100, max: values[Dimensions.EIGHTEENTEEN].max * 100 };
 
-const calc = ({ min, max }) => parseInt(Math.random() * (max - min) + min).toFixed(0);
+const number = ({ min, max }) => parseInt(Math.random() * (max - min) + min).toFixed(0);
 
-export default async (dimension) => calc(values[dimension]);
+export default async (dimension) => {
+  return number(values[dimension]);
+};
