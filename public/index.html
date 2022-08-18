@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GenPassword</title>
+</head>
+
+<body>
+    <table border="1" cellpadding="5" cellspacing="3">
+        <thead>
+            <tr>
+                <th>Type</th>
+                <th>Dimension</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>
+                    <select id="typeSelect">
+                        <option value="A">Invalid</option>
+                        <option value="9">Not Found</option>
+                    </select>
+                </td>
+                <td>
+                    <select id="dimSelect">
+                        <option value="A">Invalid</option>
+                        <option value="9">Not Found</option>
+                    </select>
+                </td>
+                <td>
+                    <button id="btnGen">Generate</button>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="3">
+                    <span style="color: darkgreen;" id="success"></span>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="3">
+                    <span style="color: darkred;" id="fail"></span>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</body>
+
+</html>
