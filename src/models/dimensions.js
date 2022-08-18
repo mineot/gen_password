@@ -1,32 +1,27 @@
+import { ERRORS } from "@/models/errors";
+
 const Dimensions = {
-  FOUR: 4,
-  SIX: 6,
-  EIGTH: 8,
-  TEN: 10,
-  TWELVE: 12,
-  FOURTEEN: 14,
-  SIXTEEN: 16,
-  EIGHTEENTEEN: 18,
-  TWENTY: 20,
+  FOUR: 204,
+  SIX: 206,
+  EIGTH: 208,
+  TEN: 210,
+  TWELVE: 212,
+  FOURTEEN: 214,
+  SIXTEEN: 216,
+  EIGHTEENTEEN: 218,
+  TWENTY: 220,
 };
 
-class DimensionError extends Error {
-  constructor(msg) {
-    super(msg);
-    this.name = "DimensionError";
-  }
-}
-
-const DimensionValidate = async (dimension) => {
+const DimensionValidator = async (dimension) => {
   if (isNaN(dimension)) {
-    throw new DimensionError("Invalid Dimension");
+    throw ERRORS.DIMENSION.INVALID();
   }
 
   if (!Object.values(Dimensions).includes(dimension)) {
-    throw new DimensionError("Dimension Not Found");
+    throw ERRORS.DIMENSION.NOT_FOUND();
   }
 
   return true;
 };
 
-export { Dimensions, DimensionError, DimensionValidate };
+export { Dimensions, DimensionValidator };

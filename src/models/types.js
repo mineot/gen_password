@@ -1,27 +1,22 @@
+import { ERRORS } from "@/models/errors";
+
 const Types = {
-  ONLY_NUMBERS: 1,
-  ONLY_ALPHAS: 2,
-  ALPHA_NUMERIC: 3,
-  COMPLEX: 4,
+  ONLY_NUMBERS: 100,
+  ONLY_ALPHAS: 101,
+  ALPHA_NUMERIC: 102,
+  COMPLEX: 103,
 };
 
-class TypeError extends Error {
-  constructor(msg) {
-    super(msg);
-    this.name = "TypeError";
-  }
-}
-
-const TypeValidate = async (type) => {
+const TypeValidator = async (type) => {
   if (isNaN(type)) {
-    throw new TypeError("Invalid Type");
+    throw ERRORS.TYPE.INVALID();
   }
 
   if (!Object.values(Types).includes(type)) {
-    throw new TypeError("Type Not Found");
+    throw ERRORS.TYPE.NOT_FOUND();
   }
 
   return true;
 };
 
-export { Types, TypeError, TypeValidate };
+export { Types, TypeValidator };
