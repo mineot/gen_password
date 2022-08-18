@@ -1,5 +1,7 @@
-import { Dimensions, DimensionError, DimensionValidate } from "@/models/dimensions";
-import { Types, TypeError, TypeValidate } from "@/models/types";
+import { GenPasswordError } from "@/models/errors";
+
+import { Dimensions, DimensionValidator } from "@/models/dimensions";
+import { Types, TypeValidator } from "@/models/types";
 
 import only_numbers from "@/generators/only_numbers";
 import only_alphas from "@/generators/only_alphas";
@@ -13,29 +15,10 @@ const data = {
   [Types.COMPLEX]: complex,
 }
 
-class GenPasswordError extends Error {
-  constructor(msg, cause) {
-    super(msg);
-    this.name = "GenPasswordError";
-    this.stack = cause;
-  }
-}
-
 const GenPassword = async (type, dimension) => {
-  try {
-    await TypeValidate(type);
-    await DimensionValidate(dimension);
-    return await data[type](dimension);
-  } catch (err) {
-    throw new GenPasswordError(err.message, err);
-  }
+  await TypeValidator(type);
+  await DimensionValidator(dimension);
+  return await data[type](dimension);
 };
 
-export {
-  GenPassword,
-  GenPasswordError,
-  Types,
-  TypeError,
-  Dimensions,
-  DimensionError,
-};
+export { GenPassword, Types, Dimensions, GenPasswordError };

@@ -1,24 +1,31 @@
-import { GenPassword, Types, Dimensions, GenPasswordError } from "@/index";
+import { GenPassword, GenPasswordError, Types, Dimensions } from "../src/index";
 
-// test("abc", async () => {
-//   try {
-//     await GenPassword(9, 9);
-//   } catch (err) {
-//     // criar uma lista de
-//     console.log(err.stack);
-//   }
-// });
+const FailTest = async (fn, message, code) => {
+  try {
+    await fn();
+  } catch (err) {
+    expect(err).toBeInstanceOf(GenPasswordError);
+    expect(err.message).toEqual(message);
+    expect(err.code).toEqual(code);
+  }
+};
 
-test("Invalid Type", async () => {
-  await expect(GenPassword(9, 9)).rejects.toEqual(new GenPasswordError("Type Not Found", new TypeError("Type Not Found")));
+const SuccessTest = async (type, dim) => {
+  const result = await GenPassword(type, dim);
+  expect(result).toHaveLength(dim);
+}
+
+test("Main - Invalids", async () => {
+  await FailTest(async () => await GenPassword("A", "A"), "type.invalid", 400);
+  await FailTest(async () => await GenPassword(9, "A"), "type.not.found", 404);
+  await FailTest(async () => await GenPassword(Types.ONLY_NUMBERS, "A"), "dimension.invalid", 400);
+  await FailTest(async () => await GenPassword(Types.ONLY_NUMBERS, 9), "dimension.not.found", 404);
 });
 
-test("Invalid Dimension", async () => {
-  await expect(GenPassword(Types.ONLY_NUMBERS, 9)).rejects.toEqual(new GenPasswordError("Dimension Not Found", new TypeError("Dimension Not Found")));
-});
-
-test("Valid", async () => {
-  const result = await GenPassword(Types.ONLY_NUMBERS, Dimensions.FOUR);
-  expect(result).toHaveLength(Dimensions.FOUR);
-  expect(Number(result)).not.toBeNaN();
+test("Main - Success", async () => {
+  Object.values(Types).forEach(type => {
+    Object.values(Dimensions).forEach(dim => {
+      SuccessTest(type, dim);
+    });
+  });
 });
