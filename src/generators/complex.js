@@ -21,8 +21,8 @@ const data = {
     [Dimensions.SIXTEEN]: { upper: 4, lower: 4, number: 4, char: 4 },
     [Dimensions.EIGHTEENTEEN]: { upper: 5, lower: 5, number: 5, char: 3 },
     [Dimensions.TWENTY]: { upper: 5, lower: 5, number: 5, char: 5 },
-  }
-}
+  },
+};
 
 const index = (val) => parseInt(Math.random() * val);
 
@@ -57,8 +57,8 @@ const builder = ({ upper, lower, number, char }) => {
   list = list.concat(get_lowers(lower));
   list = list.concat(get_numbers(number));
   return list.concat(get_chars(char));
-}
+};
 
 export default async function (dimension) {
-  return lodash.shuffle(builder(data.values[dimension])).join("")
+  return lodash.shuffle(builder(data.values[dimension])).join("");
 }

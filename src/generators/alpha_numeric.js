@@ -1,4 +1,4 @@
-import { Dimensions } from '@/models/dimensions';
+import { Dimensions } from "@/models/dimensions";
 
 const lodash = require("lodash");
 
@@ -19,8 +19,8 @@ const data = {
     [Dimensions.SIXTEEN]: { upper: 5, lower: 5, number: 6 },
     [Dimensions.EIGHTEENTEEN]: { upper: 6, lower: 6, number: 6 },
     [Dimensions.TWENTY]: { upper: 7, lower: 7, number: 6 },
-  }
-}
+  },
+};
 
 const index = (val) => parseInt(Math.random() * val);
 
@@ -47,10 +47,8 @@ const builder = ({ upper, lower, number }) => {
   let list = get_uppers(upper);
   list = list.concat(get_lowers(lower));
   return list.concat(get_numbers(number));
-}
+};
 
 export default async function (dimension) {
-  return lodash.shuffle(
-    builder(data.values[dimension])
-  ).join("")
+  return lodash.shuffle(builder(data.values[dimension])).join("");
 }

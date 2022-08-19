@@ -13,7 +13,7 @@ const data = {
   [Types.ONLY_ALPHAS]: only_alphas,
   [Types.ALPHA_NUMERIC]: alpha_numeric,
   [Types.COMPLEX]: complex,
-}
+};
 
 const GenPassword = async (type, dimension) => {
   await TypeValidator(type);
