@@ -8,7 +8,7 @@
 
 ---
 
-## Pix (only Brazil - randon key)
+## Pix (only Brazil)
 
 <!-- 74d3034f-22f8-46c6-91a8-8e2eaecf0225 -->
 
