@@ -23,18 +23,18 @@ const data = {
 
 const index = () => parseInt(Math.random() * data.base.len);
 
-const get_letter = (alpha) => alpha.charAt(index());
+const letter = (alpha) => alpha.charAt(index());
 
-const push_letters = (alpha, count) =>
+const fill = (alpha, count) =>
   Array(count)
     .fill()
-    .map(() => get_letter(alpha));
+    .map(() => letter(alpha));
 
-const build_list = (count) => {
-  const list = push_letters(data.base.upper, count);
-  return list.concat(push_letters(data.base.lower, count));
+const build = (count) => {
+  const list = fill(data.base.upper, count);
+  return list.concat(fill(data.base.lower, count));
 };
 
 export default async function (dimension) {
-  return lodash.shuffle(build_list(data.values[dimension])).join("");
+  return lodash.shuffle(build(data.values[dimension])).join("");
 }

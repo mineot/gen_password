@@ -6,15 +6,15 @@ class GenPasswordError extends Error {
   }
 }
 
-const ERRORS = {
-  TYPE: {
-    INVALID: () => new GenPasswordError("type.invalid", 400),
-    NOT_FOUND: () => new GenPasswordError("type.not.found", 404),
+const ERROR = {
+  INVALID: {
+    TYPE: () => new GenPasswordError("Invalid Type", 400),
+    DIMENSION: () => new GenPasswordError("Invalid Dimension", 400),
   },
-  DIMENSION: {
-    INVALID: () => new GenPasswordError("dimension.invalid", 400),
-    NOT_FOUND: () => new GenPasswordError("dimension.not.found", 404),
+  NOT_FOUND: {
+    TYPE: () => new GenPasswordError("Type Not Found", 404),
+    DIMENSION: () => new GenPasswordError("Dimension Not Found", 404),
   },
 };
 
-export { GenPasswordError, ERRORS };
+export { GenPasswordError, ERROR };

@@ -1,4 +1,4 @@
-import { ERRORS } from "@/models/errors";
+import { ERROR } from "@/models/errors";
 
 const Types = {
   ONLY_NUMBERS: 100,
@@ -9,11 +9,11 @@ const Types = {
 
 const TypeValidator = async (type) => {
   if (isNaN(type)) {
-    throw ERRORS.TYPE.INVALID();
+    throw ERROR.INVALID.TYPE();
   }
 
   if (!Object.values(Types).includes(type)) {
-    throw ERRORS.TYPE.NOT_FOUND();
+    throw ERROR.NOT_FOUND.TYPE();
   }
 
   return true;

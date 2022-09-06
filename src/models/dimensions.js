@@ -1,4 +1,4 @@
-import { ERRORS } from "@/models/errors";
+import { ERROR } from "@/models/errors";
 
 const Dimensions = {
   FOUR: 4,
@@ -14,11 +14,11 @@ const Dimensions = {
 
 const DimensionValidator = async (dimension) => {
   if (isNaN(dimension)) {
-    throw ERRORS.DIMENSION.INVALID();
+    throw ERROR.INVALID.DIMENSION();
   }
 
   if (!Object.values(Dimensions).includes(dimension)) {
-    throw ERRORS.DIMENSION.NOT_FOUND();
+    throw ERROR.NOT_FOUND.DIMENSION();
   }
 
   return true;

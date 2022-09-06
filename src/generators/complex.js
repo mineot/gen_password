@@ -32,31 +32,31 @@ const letter = (alpha) => alpha.charAt(index(data.base.len));
 
 const char = (alpha) => alpha.charAt(index(data.base.chs));
 
-const get_numbers = (count) =>
+const numbers = (count) =>
   Array(count)
     .fill()
     .map(() => number());
 
-const get_uppers = (count) =>
+const uppers = (count) =>
   Array(count)
     .fill()
     .map(() => letter(data.base.upper));
 
-const get_lowers = (count) =>
+const lowers = (count) =>
   Array(count)
     .fill()
     .map(() => letter(data.base.lower));
 
-const get_chars = (count) =>
+const chars = (count) =>
   Array(count)
     .fill()
     .map(() => char(data.base.chars));
 
 const builder = ({ upper, lower, number, char }) => {
-  let list = get_uppers(upper);
-  list = list.concat(get_lowers(lower));
-  list = list.concat(get_numbers(number));
-  return list.concat(get_chars(char));
+  let list = uppers(upper);
+  list = list.concat(lowers(lower));
+  list = list.concat(numbers(number));
+  return list.concat(chars(char));
 };
 
 export default async function (dimension) {

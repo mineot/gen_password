@@ -13,13 +13,13 @@ const Test = async (fn, message, code) => {
 };
 
 test("Type Validation", async () => {
-  await Test(async () => await TypeValidator("A"), "type.invalid", 400);
-  await Test(async () => await TypeValidator(9), "type.not.found", 404);
+  await Test(async () => await TypeValidator("A"), "Invalid Type", 400);
+  await Test(async () => await TypeValidator(9), "Type Not Found", 404);
   expect(TypeValidator(Types.ONLY_NUMBERS)).resolves.toEqual(true);
 });
 
 test("Dimension Validation", async () => {
-  await Test(async () => await DimensionValidator("A"), "dimension.invalid", 400);
-  await Test(async () => await DimensionValidator(9), "dimension.not.found", 404);
+  await Test(async () => await DimensionValidator("A"), "Invalid Dimension", 400);
+  await Test(async () => await DimensionValidator(9), "Dimension Not Found", 404);
   expect(DimensionValidator(Dimensions.FOUR)).resolves.toEqual(true);
 });

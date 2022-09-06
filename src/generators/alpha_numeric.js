@@ -28,25 +28,25 @@ const number = () => index(data.base.num);
 
 const letter = (alpha) => alpha.charAt(index(data.base.len));
 
-const get_numbers = (count) =>
+const numbers = (count) =>
   Array(count)
     .fill()
     .map(() => number());
 
-const get_uppers = (count) =>
+const uppers = (count) =>
   Array(count)
     .fill()
     .map(() => letter(data.base.upper));
 
-const get_lowers = (count) =>
+const lowers = (count) =>
   Array(count)
     .fill()
     .map(() => letter(data.base.lower));
 
 const builder = ({ upper, lower, number }) => {
-  let list = get_uppers(upper);
-  list = list.concat(get_lowers(lower));
-  return list.concat(get_numbers(number));
+  let list = uppers(upper);
+  list = list.concat(lowers(lower));
+  return list.concat(numbers(number));
 };
 
 export default async function (dimension) {
