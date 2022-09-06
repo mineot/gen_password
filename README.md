@@ -36,24 +36,24 @@ GenPassword(Types.ONLY_NUMBERS, Dimensions.FOUR)
 
 | Dimensions   | Description                            |
 | ------------ | -------------------------------------- |
-| FOUR         | The maximum password length will be 4  |
-| SIX          | The maximum password length will be 6  |
-| EIGTH        | The maximum password length will be 8  |
-| TEN          | The maximum password length will be 10 |
-| TWELVE       | The maximum password length will be 12 |
-| FOURTEEN     | The maximum password length will be 14 |
-| SIXTEEN      | The maximum password length will be 16 |
-| EIGHTEENTEEN | The maximum password length will be 18 |
-| TWENTY       | The maximum password length will be 20 |
+| FOUR         | The max password size will be 4  |
+| SIX          | The max password size will be 6  |
+| EIGTH        | The max password size will be 8  |
+| TEN          | The max password size will be 10 |
+| TWELVE       | The max password size will be 12 |
+| FOURTEEN     | The max password size will be 14 |
+| SIXTEEN      | The max password size will be 16 |
+| EIGHTEENTEEN | The max password size will be 18 |
+| TWENTY       | The max password size will be 20 |
 
 ## Exceptions
 
 | Message             | Code | Instance OF      |
 | ------------------- | ---- | ---------------- |
-| type.invalid        | 400  | GenPasswordError |
-| type.not.found      | 404  | GenPasswordError |
-| dimension.invalid   | 400  | GenPasswordError |
-| dimension.not.found | 404  | GenPasswordError |
+| Invalid Type        | 400  | GenPasswordError |
+| Invalid Dimension   | 400  | GenPasswordError |
+| Type Not Found      | 404  | GenPasswordError |
+| Dimension Not Found | 404  | GenPasswordError |
 
 ## License
 
