@@ -61,4 +61,9 @@ GenPassword(Types.ONLY_NUMBERS, Dimensions.FOUR)
 
 ## Donate
 
-If you wanna contribute with this project, feel free to [donates here](./donates/DONATES.md) the value that you desire, thanks a lot!
+Help me with this project, I will be grateful a lot!
+
+| Platform          | Address                                    |
+| ----------------- | ------------------------------------------ |
+| Bitcoin           | bc1q02u42ky4y2u8apd9vuhglmgmsh2402w24exnwx |
+| Pix (Only Brazil) | 74d3034f-22f8-46c6-91a8-8e2eaecf0225       |
