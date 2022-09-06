@@ -11,16 +11,20 @@ npm i @mineot/gen_password
 ## Use
 
 ```javascript
-import { GenPassword, Types, Dimensions } from "@mineot/gen_password";
+import { GenPassword, Types, Dimensions, GenPasswordError } from "@mineot/gen_password";
 
-const password = await GenPassword(Types.ONLY_NUMBERS, Dimensions.FOUR);
-console.log(password);
+try {
+  const password = await GenPassword(Types.ONLY_NUMBERS, Dimensions.FOUR);
+  console.log(password);
+} catch(err) { // err instanceof GenPasswordError
+  console.error(err);
+}
 
 GenPassword(Types.ONLY_NUMBERS, Dimensions.FOUR)
   .then((res) => {
     console.log(res);
   })
-  .catch((err) => {
+  .catch((err) => { // err instanceof GenPasswordError
     console.error(err);
   });
 ```
@@ -48,7 +52,7 @@ GenPassword(Types.ONLY_NUMBERS, Dimensions.FOUR)
 
 ## Exceptions
 
-| Message             | Code | Instance OF      |
+| Message             | Code | Instance         |
 | ------------------- | ---- | ---------------- |
 | Invalid Type        | 400  | GenPasswordError |
 | Invalid Dimension   | 400  | GenPasswordError |
