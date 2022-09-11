@@ -16,7 +16,8 @@ import { GenPassword, Types, Dimensions, GenPasswordError } from "@mineot/gen_pa
 try {
   const password = await GenPassword(Types.ONLY_NUMBERS, Dimensions.FOUR);
   console.log(password);
-} catch(err) { // err instanceof GenPasswordError
+} catch (err) {
+  // err instanceof GenPasswordError
   console.error(err);
 }
 
@@ -24,7 +25,8 @@ GenPassword(Types.ONLY_NUMBERS, Dimensions.FOUR)
   .then((res) => {
     console.log(res);
   })
-  .catch((err) => { // err instanceof GenPasswordError
+  .catch((err) => {
+    // err instanceof GenPasswordError
     console.error(err);
   });
 ```
@@ -38,8 +40,8 @@ GenPassword(Types.ONLY_NUMBERS, Dimensions.FOUR)
 | ALPHA_NUMERIC | The password will contain characters and numbers                     |
 | COMPLEX       | The password will contain characters, numbers and this special chars |
 
-| Dimensions   | Description                            |
-| ------------ | -------------------------------------- |
+| Dimensions   | Description                      |
+| ------------ | -------------------------------- |
 | FOUR         | The max password size will be 4  |
 | SIX          | The max password size will be 6  |
 | EIGTH        | The max password size will be 8  |
@@ -65,9 +67,4 @@ GenPassword(Types.ONLY_NUMBERS, Dimensions.FOUR)
 
 ## Donate
 
-Help me with this project, I will be grateful a lot!
-
-| Platform          | Address                                    |
-| ----------------- | ------------------------------------------ |
-| Bitcoin           | bc1q02u42ky4y2u8apd9vuhglmgmsh2402w24exnwx |
-| Pix (Only Brazil) | 74d3034f-22f8-46c6-91a8-8e2eaecf0225       |
+Help me with this project: [Donate Here](./DONATE.md)
