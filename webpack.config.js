@@ -9,6 +9,7 @@ module.exports = {
       type: "umd",
     },
   },
+  devtool: "source-map",
   resolve: {
     alias: {
       "@": path.resolve(__dirname, "src/"),
