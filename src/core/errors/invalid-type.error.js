@@ -7,10 +7,10 @@ import { GenPasswordError } from "@errors/gen-password.error";
  * @augments GenPasswordError
  */
 export class InvalidTypeError extends GenPasswordError {
-    /**
-     * @constructs
-     */
-    constructor() {
-        super("Invalid Type", 400);
-    }
+  /**
+   * @constructs
+   */
+  constructor() {
+    super("Invalid Type", 400);
+  }
 }

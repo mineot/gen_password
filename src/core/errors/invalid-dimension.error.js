@@ -7,10 +7,10 @@ import { GenPasswordError } from "@errors/gen-password.error";
  * @augments GenPasswordError
  */
 export class InvalidDimensionError extends GenPasswordError {
-    /**
-     * @constructs
-     */
-    constructor() {
-        super("Invalid Dimension", 400);
-    }
+  /**
+   * @constructs
+   */
+  constructor() {
+    super("Invalid Dimension", 400);
+  }
 }
