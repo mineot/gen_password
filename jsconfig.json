@@ -5,7 +5,9 @@
     "module": "commonjs",
     "allowSyntheticDefaultImports": true,
     "paths": {
-      "@/*": ["./src/*"]
+      "@/*": ["./src/*"],
+      "@errors/*": ["./src/core/errors/*"],
+      "@enums/*": ["./src/core/enums/*"]
     }
   }
 }

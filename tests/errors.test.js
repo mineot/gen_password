@@ -1,5 +1,10 @@
 // @ts-check
-import { GenPasswordError, InvalidTypeError, InvalidDimensionError, TypeNotFoundError } from "../src/core/errors";
+
+import { GenPasswordError } from "@errors/gen-password.error";
+import { InvalidTypeError } from "@errors/invalid-type.error";
+import { InvalidDimensionError } from "@errors/invalid-dimension.error";
+import { TypeNotFoundError } from "@errors/type-not-found.error";
+import { DimensionNotFoundError } from "@errors/dimension-not-found.error";
 
 test("Error - General", () => {
   try {
@@ -35,8 +40,8 @@ test("Error - Type Not Found", () => {
 
 test("Error - Dimension Not Found", () => {
   try {
-    throw new TypeNotFoundError();
+    throw new DimensionNotFoundError();
   } catch (err) {
-    expect(err).toEqual({ name: "GenPasswordError", message: "Type Not Found", code: 404 });
+    expect(err).toEqual({ name: "GenPasswordError", message: "Dimension Not Found", code: 404 });
   }
 });

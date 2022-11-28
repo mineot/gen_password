@@ -24,6 +24,8 @@ module.exports = {
   resolve: {
     alias: {
       "@": path.resolve(__dirname, "src"),
+      "@errors": path.resolve(__dirname, "src/core/errors"),
+      "@enums": path.resolve(__dirname, "src/core/enums"),
     },
   },
   devtool: "source-map",
