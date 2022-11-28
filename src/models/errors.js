@@ -1,4 +1,16 @@
+/**
+ * @class
+ * @extends { Error }
+ * @type { GenPasswordError }
+ */
 class GenPasswordError extends Error {
+  /**
+   * Generate Password Error
+   *
+   * @constructs
+   * @param { string } message
+   * @param { number } code
+   */
   constructor(message, code) {
     super(message);
     this.name = "GenPasswordError";

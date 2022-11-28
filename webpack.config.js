@@ -7,7 +7,7 @@ module.exports = {
   output: {
     path: path.resolve(__dirname, "dist"),
     filename: "gen_password.js",
-    library: "$mineot.gen_password",
+    library: "$.mineot.gen_password",
     libraryTarget: "umd",
     globalObject: "this",
     umdNamedDefine: true,

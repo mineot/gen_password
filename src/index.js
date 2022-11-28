@@ -1,6 +1,6 @@
+import { Types, TypeValidator } from "@/models/types";
 import { Dimensions, DimensionValidator } from "@/models/dimensions";
 import { GenPasswordError } from "@/models/errors";
-import { Types, TypeValidator } from "@/models/types";
 
 import only_numbers from "@/generators/only_numbers";
 import only_alphas from "@/generators/only_alphas";

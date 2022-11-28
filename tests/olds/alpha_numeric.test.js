@@ -1,5 +1,5 @@
 import { Dimensions } from '@/models/dimensions';
-import gen from "../src/generators/alpha_numeric";
+import gen from "../../src/generators/alpha_numeric";
 
 const data = {
   base: {
