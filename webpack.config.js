@@ -26,6 +26,7 @@ module.exports = {
       "@": path.resolve(__dirname, "src"),
       "@errors": path.resolve(__dirname, "src/core/errors"),
       "@enums": path.resolve(__dirname, "src/core/enums"),
+      "@validators": path.resolve(__dirname, "src/core/validators"),
     },
   },
   devtool: "source-map",

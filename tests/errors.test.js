@@ -3,8 +3,6 @@
 import { GenPasswordError } from "@errors/gen-password.error";
 import { InvalidTypeError } from "@errors/invalid-type.error";
 import { InvalidDimensionError } from "@errors/invalid-dimension.error";
-import { TypeNotFoundError } from "@errors/type-not-found.error";
-import { DimensionNotFoundError } from "@errors/dimension-not-found.error";
 
 test("Error - General", () => {
   try {
@@ -27,21 +25,5 @@ test("Error - Dimension Type", () => {
     throw new InvalidDimensionError();
   } catch (err) {
     expect(err).toEqual({ name: "GenPasswordError", message: "Invalid Dimension", code: 400 });
-  }
-});
-
-test("Error - Type Not Found", () => {
-  try {
-    throw new TypeNotFoundError();
-  } catch (err) {
-    expect(err).toEqual({ name: "GenPasswordError", message: "Type Not Found", code: 404 });
-  }
-});
-
-test("Error - Dimension Not Found", () => {
-  try {
-    throw new DimensionNotFoundError();
-  } catch (err) {
-    expect(err).toEqual({ name: "GenPasswordError", message: "Dimension Not Found", code: 404 });
   }
 });

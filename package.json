@@ -29,7 +29,8 @@
     "moduleNameMapper": {
       "@/(.*)$": "<rootDir>/src/$1",
       "@errors/(.*)$": "<rootDir>/src/core/errors/$1",
-      "@enums/(.*)$": "<rootDir>/src/core/enums/$1"
+      "@enums/(.*)$": "<rootDir>/src/core/enums/$1",
+      "@validators/(.*)$": "<rootDir>/src/core/validators/$1"
     },
     "globals": {
       "window": {}
