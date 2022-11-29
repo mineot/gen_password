@@ -1,8 +1,9 @@
 // @ts-check
 
+import { DimensionEnum } from "@enums/dimension.enum";
+import { NumberHelper } from "@helpers/number.helper";
 import { TypeDimension } from "@core/type-dimension";
 import { TypeEnum } from "@enums/type.enums";
-import { DimensionEnum } from "@enums/dimension.enum";
 
 /**
  * Feature to generate only numbers
@@ -11,7 +12,6 @@ import { DimensionEnum } from "@enums/dimension.enum";
  */
 export const OnlyNumberFeature = async function (dimension) {
   let { min, max } = TypeDimension[TypeEnum.ONLY_NUMBERS][dimension];
-
   switch (dimension) {
     case DimensionEnum.SIXTEEN:
     case DimensionEnum.EIGHTEEN:
@@ -19,6 +19,5 @@ export const OnlyNumberFeature = async function (dimension) {
       min = Number(min);
       max = Number(max);
   }
-
-  return Math.floor(Math.random() * (max - min) + min).toFixed(0);
+  return NumberHelper(max, { min }).toFixed(0);
 };

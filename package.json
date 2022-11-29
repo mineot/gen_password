@@ -32,6 +32,7 @@
       "@errors/(.*)$": "<rootDir>/src/core/errors/$1",
       "@enums/(.*)$": "<rootDir>/src/core/enums/$1",
       "@validators/(.*)$": "<rootDir>/src/core/validators/$1",
+      "@helpers/(.*)$": "<rootDir>/src/core/helpers/$1",
       "@features/(.*)$": "<rootDir>/src/features/$1"
     },
     "globals": {

@@ -10,6 +10,7 @@
       "@errors/*": ["./src/core/errors/*"],
       "@enums/*": ["./src/core/enums/*"],
       "@validators/*": ["./src/core/validators/*"],
+      "@helpers/*": ["./src/core/helpers/*"],
       "@features/*": ["./src/features/*"]
     }
   }
