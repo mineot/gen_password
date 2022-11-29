@@ -1,6 +1,7 @@
 // @ts-check
 
 import { AlphaNumericFeature } from "@features/alpha-numeric.feature";
+import { ComplexFeature } from "@features/complex.feature";
 import { DimensionEnum } from "@enums/dimension.enum";
 import { OnlyAlphaFeature } from "@features/only-alpha.feature";
 import { OnlyNumberFeature } from "@features/only-number.feature";
@@ -59,6 +60,28 @@ test("Feature - Alpha Numerics", async () => {
   const sixteen = await AlphaNumericFeature(DimensionEnum.SIXTEEN);
   const eighteen = await AlphaNumericFeature(DimensionEnum.EIGHTEEN);
   const twenty = await AlphaNumericFeature(DimensionEnum.TWENTY);
+
+  expect(four).toHaveLength(DimensionEnum.FOUR);
+  expect(six).toHaveLength(DimensionEnum.SIX);
+  expect(eigth).toHaveLength(DimensionEnum.EIGTH);
+  expect(ten).toHaveLength(DimensionEnum.TEN);
+  expect(twelve).toHaveLength(DimensionEnum.TWELVE);
+  expect(fourteen).toHaveLength(DimensionEnum.FOURTEEN);
+  expect(sixteen).toHaveLength(DimensionEnum.SIXTEEN);
+  expect(eighteen).toHaveLength(DimensionEnum.EIGHTEEN);
+  expect(twenty).toHaveLength(DimensionEnum.TWENTY);
+});
+
+test("Feature - Complex", async () => {
+  const four = await ComplexFeature(DimensionEnum.FOUR);
+  const six = await ComplexFeature(DimensionEnum.SIX);
+  const eigth = await ComplexFeature(DimensionEnum.EIGTH);
+  const ten = await ComplexFeature(DimensionEnum.TEN);
+  const twelve = await ComplexFeature(DimensionEnum.TWELVE);
+  const fourteen = await ComplexFeature(DimensionEnum.FOURTEEN);
+  const sixteen = await ComplexFeature(DimensionEnum.SIXTEEN);
+  const eighteen = await ComplexFeature(DimensionEnum.EIGHTEEN);
+  const twenty = await ComplexFeature(DimensionEnum.TWENTY);
 
   expect(four).toHaveLength(DimensionEnum.FOUR);
   expect(six).toHaveLength(DimensionEnum.SIX);
