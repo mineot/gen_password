@@ -5,7 +5,7 @@ import { TypeEnum } from "@enums/type.enums";
 
 const lodash = require("lodash");
 
-const alphaBase = {
+const base = {
   upper: "ABCDEFGHIJKLMNOPQRSTUVWXYZ",
   lower: "abcdefghijklmnopqrstuvwxyz",
   len: 26,
@@ -16,7 +16,7 @@ const alphaBase = {
  * @returns { number }
  */
 const index = function () {
-  return Math.random() * alphaBase.len;
+  return Math.floor(Math.random() * base.len);
 };
 
 /**
@@ -43,9 +43,9 @@ const fill = function (alphaList, size) {
  * @param { number } size 
  * @returns { Array }
  */
-const builder = (size) => {
-  return fill(alphaBase.upper, size)
-    .concat(fill(alphaBase.lower, size));
+const compose = (size) => {
+  return fill(base.upper, size)
+    .concat(fill(base.lower, size));
 };
 
 /**
@@ -55,6 +55,6 @@ const builder = (size) => {
  */
 export const OnlyAlphaFeature = async function (dimension) {
   const { mid } = TypeDimension[TypeEnum.ONLY_ALPHAS][dimension];
-  const list = builder(mid);
+  const list = compose(mid);
   return lodash.shuffle(list).join("");
 };

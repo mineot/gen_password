@@ -11,7 +11,7 @@ import { DimensionEnum } from "@enums/dimension.enum";
  */
 export const OnlyNumberFeature = async function (dimension) {
   let { min, max } = TypeDimension[TypeEnum.ONLY_NUMBERS][dimension];
-  
+
   switch (dimension) {
     case DimensionEnum.SIXTEEN:
     case DimensionEnum.EIGHTEEN:
@@ -20,5 +20,5 @@ export const OnlyNumberFeature = async function (dimension) {
       max = Number(max);
   }
 
-  return parseInt(Math.random() * (max - min) + min).toFixed(0);
+  return Math.floor(Math.random() * (max - min) + min).toFixed(0);
 };
