@@ -10,7 +10,7 @@
       "@errors/*": ["./src/core/errors/*"],
       "@enums/*": ["./src/core/enums/*"],
       "@validators/*": ["./src/core/validators/*"],
-      "@fatures/*": ["./src/fatures/*"]
+      "@features/*": ["./src/features/*"]
     }
   }
 }
