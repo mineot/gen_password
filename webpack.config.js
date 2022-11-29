@@ -24,9 +24,11 @@ module.exports = {
   resolve: {
     alias: {
       "@": path.resolve(__dirname, "src"),
+      "@core": path.resolve(__dirname, "src/core"),
       "@errors": path.resolve(__dirname, "src/core/errors"),
       "@enums": path.resolve(__dirname, "src/core/enums"),
       "@validators": path.resolve(__dirname, "src/core/validators"),
+      "@features": path.resolve(__dirname, "src/features"),
     },
   },
   devtool: "source-map",

@@ -6,9 +6,11 @@
     "allowSyntheticDefaultImports": true,
     "paths": {
       "@/*": ["./src/*"],
+      "@core/*": ["./src/core/*"],
       "@errors/*": ["./src/core/errors/*"],
       "@enums/*": ["./src/core/enums/*"],
-      "@validators/*": ["./src/core/validators/*"]
+      "@validators/*": ["./src/core/validators/*"],
+      "@fatures/*": ["./src/fatures/*"]
     }
   }
 }
