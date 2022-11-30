@@ -1,23 +1,11 @@
 // @ts-check
 
+import { Base } from "@core/base";
+import { NumberHelper } from "@helpers/number.helper";
 import { TypeDimension } from "@core/type-dimension";
 import { TypeEnum } from "@enums/type.enums";
 
 const lodash = require("lodash");
-
-const base = {
-  upper: "ABCDEFGHIJKLMNOPQRSTUVWXYZ",
-  lower: "abcdefghijklmnopqrstuvwxyz",
-  len: 26,
-};
-
-/**
- * Get a number between 0 and 25
- * @returns { number }
- */
-const index = function () {
-  return Math.floor(Math.random() * base.len);
-};
 
 /**
  * Get a character by index
@@ -25,7 +13,7 @@ const index = function () {
  * @returns { string }
  */
 const alpha = function (alphaList) {
-  return alphaList.charAt(index());
+  return alphaList.charAt(NumberHelper.alphaIndex());
 };
 
 /**
@@ -46,7 +34,7 @@ const fill = function (alphaList, size) {
  * @returns { Array }
  */
 const compose = (size) => {
-  return fill(base.upper, size).concat(fill(base.lower, size));
+  return fill(Base.alphas.upper, size).concat(fill(Base.alphas.lower, size));
 };
 
 /**

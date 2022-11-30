@@ -1,3 +1,5 @@
+import { Base } from "@core/base";
+
 /**
  * A helper to generate numbers
  */
@@ -19,5 +21,13 @@ export const NumberHelper = {
    */
   range: function (min, max) {
     return Math.floor(Math.random() * (max - min) + min);
+  },
+
+  /**
+   * Return a random alpha index
+   * @returns { number }
+   */
+  alphaIndex: function () {
+    return NumberHelper.max(Base.sizes.alpha);
   },
 };
