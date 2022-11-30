@@ -26,7 +26,13 @@ module.exports = {
   ],
   resolve: {
     alias: {
-      "@": path.resolve(__dirname, "src/"),
+      "@": path.resolve(__dirname, "src"),
+      "@core": path.resolve(__dirname, "src/core"),
+      "@errors": path.resolve(__dirname, "src/core/errors"),
+      "@enums": path.resolve(__dirname, "src/core/enums"),
+      "@validators": path.resolve(__dirname, "src/core/validators"),
+      "@helpers": path.resolve(__dirname, "src/core/helpers"),
+      "@features": path.resolve(__dirname, "src/features"),
     },
   },
 };

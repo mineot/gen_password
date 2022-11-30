@@ -1,4 +1,4 @@
-import { Dimensions, GenPassword, Types } from "@/index";
+import { GenPassword, TypeEnum, DimensionEnum, GenPasswordError } from "@/index";
 
 window.onload = function () {
     var typeSelect = document.getElementById("typeSelect");
@@ -13,22 +13,22 @@ window.onload = function () {
     var type = "A";
     var dim = "A";
 
-    Object.keys(Types).forEach(type => {
+    Object.keys(TypeEnum).forEach(type => {
         var opt = document.createElement("option");
-        opt.value = Types[type];
+        opt.value = TypeEnum[type];
         opt.text = type;
         typeSelect.appendChild(opt);
     });
 
-    Object.keys(Dimensions).forEach(dim => {
+    Object.keys(DimensionEnum).forEach(dim => {
         var opt = document.createElement("option");
-        opt.value = Dimensions[dim];
+        opt.value = DimensionEnum[dim];
         opt.text = dim;
         dimSelect.appendChild(opt);
     });
 
     typeSelect.addEventListener("change", (event) => {
-        type = +event.target.value;
+        type = event.target.value;
     });
 
     dimSelect.addEventListener("change", (event) => {
