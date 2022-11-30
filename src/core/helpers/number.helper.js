@@ -40,4 +40,12 @@ export const NumberHelper = {
   alphaIndex: function () {
     return NumberHelper.max(Constants.sizes.alpha);
   },
+
+  /**
+   * Get a random special index
+   * @returns { number }
+   */
+  specialIndex: function () {
+    return NumberHelper.max(Constants.sizes.special);
+  },
 };

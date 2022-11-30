@@ -1,49 +1,11 @@
 // @ts-check
 
+import { Constants } from "@core/constants";
+import { NumberHelper } from "@helpers/number.helper";
 import { TypeDimension } from "@core/type-dimension";
 import { TypeEnum } from "@enums/type.enums";
 
 const lodash = require("lodash");
-
-const base = {
-  upper: "ABCDEFGHIJKLMNOPQRSTUVWXYZ",
-  lower: "abcdefghijklmnopqrstuvwxyz",
-  chars: "@#!$+&%|?",
-  sizes: { number: 10, alpha: 26, special: 9 },
-};
-
-/**
- * Get a random number by size
- * @param { number } size
- * @returns { number }
- */
-const index = function (size) {
-  return Math.floor(Math.random() * size);
-};
-
-/**
- * get an alpha index
- * @returns { number }
- */
-const alphaIndex = function () {
-  return index(base.sizes.alpha);
-};
-
-/**
- * Get a special index
- * @returns { number }
- */
-const specialIndex = function () {
-  return index(base.sizes.special);
-};
-
-/**
- * Get a number
- * @returns { number }
- */
-const number = function () {
-  return index(base.sizes.number);
-};
 
 /**
  * Get an alpha char
@@ -51,7 +13,7 @@ const number = function () {
  * @returns { string }
  */
 const alpha = function (alphaList) {
-  return alphaList.charAt(alphaIndex());
+  return alphaList.charAt(NumberHelper.alphaIndex());
 };
 
 /**
@@ -60,7 +22,7 @@ const alpha = function (alphaList) {
  * @returns { string }
  */
 const special = function (specialList) {
-  return specialList.charAt(specialIndex());
+  return specialList.charAt(NumberHelper.specialIndex());
 };
 
 /**
@@ -71,7 +33,7 @@ const special = function (specialList) {
 const numberArray = function (size) {
   return Array(size)
     .fill()
-    .map(() => number());
+    .map(() => NumberHelper.numberIndex());
 };
 
 /**
@@ -82,7 +44,7 @@ const numberArray = function (size) {
 const alphaUpperArray = function (size) {
   return Array(size)
     .fill()
-    .map(() => alpha(base.upper));
+    .map(() => alpha(Constants.alphas.upper));
 };
 
 /**
@@ -93,7 +55,7 @@ const alphaUpperArray = function (size) {
 const alphaLowerArray = function (size) {
   return Array(size)
     .fill()
-    .map(() => alpha(base.lower));
+    .map(() => alpha(Constants.alphas.lower));
 };
 
 /**
@@ -104,7 +66,7 @@ const alphaLowerArray = function (size) {
 const specialArray = function (size) {
   return Array(size)
     .fill()
-    .map(() => special(base.chars));
+    .map(() => special(Constants.alphas.special));
 };
 
 /**
