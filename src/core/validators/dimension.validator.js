@@ -5,13 +5,13 @@ import { InvalidDimensionError } from "@errors/invalid-dimension.error";
 
 /**
  * Validate if is a valid dimension enum
- * @param { string } type
+ * @param { number } dimension
  * @throws { InvalidDimensionError }
  * @returns { Promise<boolean> }
  */
-export const DimensionValidator = async function (type) {
+export const DimensionValidator = async function (dimension) {
   const values = Object.values(DimensionEnum);
-  if (typeof type !== "number" || !values.includes(type)) {
+  if (typeof dimension !== "number" || !values.includes(dimension)) {
     throw new InvalidDimensionError();
   }
   return true;
