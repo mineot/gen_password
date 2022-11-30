@@ -1,40 +1,11 @@
 // @ts-check
 
+import { Constants } from "@core/constants";
+import { NumberHelper } from "@helpers/number.helper";
 import { TypeDimension } from "@core/type-dimension";
 import { TypeEnum } from "@enums/type.enums";
 
 const lodash = require("lodash");
-
-const base = {
-  upper: "ABCDEFGHIJKLMNOPQRSTUVWXYZ",
-  lower: "abcdefghijklmnopqrstuvwxyz",
-  sizes: { numbers: 10, alphas: 26 },
-};
-
-/**
- * Get a random number by size
- * @param { number } size
- * @returns { number }
- */
-const index = function (size) {
-  return Math.floor(Math.random() * size);
-};
-
-/**
- * Return a number index
- * @returns { number }
- */
-const numberIndex = function () {
-  return index(base.sizes.numbers);
-};
-
-/**
- * Return a alpha index
- * @returns { number }
- */
-const alphaIndex = function () {
-  return index(base.sizes.alphas);
-};
 
 /**
  * Get a alpha char from an alpha index
@@ -42,7 +13,7 @@ const alphaIndex = function () {
  * @returns { string }
  */
 const alphaChar = function (alphaList) {
-  return alphaList.charAt(alphaIndex());
+  return alphaList.charAt(NumberHelper.alphaIndex());
 };
 
 /**
@@ -53,7 +24,7 @@ const alphaChar = function (alphaList) {
 const numberArray = function (size) {
   return Array(size)
     .fill()
-    .map(() => numberIndex());
+    .map(() => NumberHelper.numberIndex());
 };
 
 /**
@@ -64,7 +35,7 @@ const numberArray = function (size) {
 const alphaUpperArray = function (size) {
   return Array(size)
     .fill()
-    .map(() => alphaChar(base.upper));
+    .map(() => alphaChar(Constants.alphas.upper));
 };
 
 /**
@@ -75,7 +46,7 @@ const alphaUpperArray = function (size) {
 const alphaLowerArray = function (size) {
   return Array(size)
     .fill()
-    .map(() => alphaChar(base.lower));
+    .map(() => alphaChar(Constants.alphas.lower));
 };
 
 /**

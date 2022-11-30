@@ -1,6 +1,6 @@
 // @ts-check
 
-import { Base } from "@core/base";
+import { Constants } from "@/core/constants";
 import { NumberHelper } from "@helpers/number.helper";
 import { TypeDimension } from "@core/type-dimension";
 import { TypeEnum } from "@enums/type.enums";
@@ -34,7 +34,7 @@ const fill = function (alphaList, size) {
  * @returns { Array }
  */
 const compose = (size) => {
-  return fill(Base.alphas.upper, size).concat(fill(Base.alphas.lower, size));
+  return fill(Constants.alphas.upper, size).concat(fill(Constants.alphas.lower, size));
 };
 
 /**
