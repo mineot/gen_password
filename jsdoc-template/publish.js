@@ -613,7 +613,7 @@ exports.publish = (taffyData, opts, tutorials) => {
     files = find({kind: 'file'});
     packages = find({kind: 'package'});
 
-    generate('Home',
+    generate('GenPassword',
         packages.concat(
             [{
                 kind: 'mainpage',
