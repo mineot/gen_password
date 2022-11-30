@@ -1,6 +1,10 @@
 // @ts-check
 
+import { AlphaHelper } from "@helpers/alpha.helper";
+import { ComposerHelper } from "@helpers/composer.helper";
+import { Constants } from "@core/constants";
 import { DimensionEnum } from "@enums/dimension.enum";
+import { FillHelper } from "@helpers/fill.helper";
 import { NumberHelper } from "@helpers/number.helper";
 import { TypeDimension } from "@core/type-dimension";
 import { TypeEnum } from "@enums/type.enums";
@@ -26,4 +30,21 @@ test("Core - Number Helper", () => {
   const range = NumberHelper.range(5, 20);
   expect(range).toBeGreaterThanOrEqual(5);
   expect(range).toBeLessThanOrEqual(20);
+});
+
+test("Core - Alpha Helper", () => {
+  expect(Constants.alphas.upper.split("").includes(AlphaHelper.upper())).toEqual(true);
+  expect(Constants.alphas.lower.split("").includes(AlphaHelper.lower())).toEqual(true);
+  expect(Constants.alphas.special.split("").includes(AlphaHelper.special())).toEqual(true);
+});
+
+test("Core - Fill Helper", () => {
+  expect(FillHelper.number(4)).toHaveLength(4);
+  expect(FillHelper.upper(4)).toHaveLength(4);
+  expect(FillHelper.lower(4)).toHaveLength(4);
+  expect(FillHelper.special(4)).toHaveLength(4);
+});
+
+test("Core - Composer Helper", () => {
+  console.log(ComposerHelper.onlyAlpha(4));
 });
