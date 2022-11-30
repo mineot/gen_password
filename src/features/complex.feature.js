@@ -9,6 +9,7 @@ import { TypeEnum } from "@enums/type.enums";
  * Feature to generate a complex
  * @param { number } dimension
  * @returns { Promise<string> }
+ * @ignore
  */
 export const ComplexFeature = async function (dimension) {
   const { num, upp, low, spc } = TypeDimension[TypeEnum.COMPLEX][dimension];

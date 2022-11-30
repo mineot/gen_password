@@ -11,6 +11,7 @@ const lodash = require("lodash");
  * Feature to generate only alphas
  * @param { number } dimension
  * @returns { Promise<string> }
+ * @ignore
  */
 export const OnlyAlphaFeature = async function (dimension) {
   const { mid } = TypeDimension[TypeEnum.ONLY_ALPHAS][dimension];

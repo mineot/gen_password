@@ -8,6 +8,7 @@ import { InvalidDimensionError } from "@errors/invalid-dimension.error";
  * @param { number } dimension
  * @throws { InvalidDimensionError }
  * @returns { Promise<boolean> }
+ * @ignore
  */
 export const DimensionValidator = async function (dimension) {
   const values = Object.values(DimensionEnum);

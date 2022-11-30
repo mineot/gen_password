@@ -8,11 +8,13 @@ import { NumberHelper } from "@helpers/number.helper";
  * @param { string } list
  * @param { number } index
  * @returns { string }
+ * @ignore
  */
 const charAt = (list, index) => list.charAt(index);
 
 /**
  * A helper to get alpha char
+ * @ignore
  */
 export const AlphaHelper = {
   /**

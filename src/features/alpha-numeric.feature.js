@@ -9,6 +9,7 @@ import { TypeEnum } from "@enums/type.enums";
  * Feature to generate alpha numerics
  * @param { number } dimension
  * @returns { Promise<string> }
+ * @ignore
  */
 export const AlphaNumericFeature = async function (dimension) {
   const { upp, low, num } = TypeDimension[TypeEnum.ALPHA_NUMERICS][dimension];

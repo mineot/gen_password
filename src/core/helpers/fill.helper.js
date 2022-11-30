@@ -8,6 +8,7 @@ import { NumberHelper } from "@helpers/number.helper";
  * @param { number } length
  * @param { Function } fn
  * @returns { Array }
+ * @ignore
  */
 const fill = (length, fn) =>
   Array(length)

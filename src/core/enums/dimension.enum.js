@@ -1,7 +1,23 @@
 // @ts-check
 
 /**
- * Available dimensions characters enum list
+ * <table>
+ *   <thead>
+ *       <tr> <th colspan="2">Dimension Enum</th> </tr>
+ *       <tr> <th>Member</th> <th>Value</th> </tr>
+ *   </thead>
+ *   <tbody>
+ *      <tr> <td>FOUR</td> <td>4</td> </tr>
+ *      <tr> <td>SIX</td> <td>6</td> </tr>
+ *      <tr> <td>EIGTH</td> <td>8</td> </tr>
+ *      <tr> <td>TEN</td> <td>10</td> </tr>
+ *      <tr> <td>TWELVE</td> <td>12</td> </tr>
+ *      <tr> <td>FOURTEEN</td> <td>14</td> </tr>
+ *      <tr> <td>SIXTEEN</td> <td>16</td> </tr>
+ *      <tr> <td>EIGHTEEN</td> <td>18</td> </tr>
+ *      <tr> <td>TWENTY</td> <td>20</td> </tr>
+ *  </tbody>
+ * </table>
  * @readonly
  * @enum { number }
  */

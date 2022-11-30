@@ -6,6 +6,7 @@ import { Constants } from "@core/constants";
  * Math Calc
  * @param { number } max
  * @returns { number }
+ * @ignore
  */
 const calc = (max) => Math.floor(Math.random() * max);
 
@@ -14,11 +15,13 @@ const calc = (max) => Math.floor(Math.random() * max);
  * @param { number } min
  * @param { number } max
  * @returns { number }
+ * @ignore
  */
 const calcRange = (min, max) => Math.floor(Math.random() * (max - min) + min);
 
 /**
  * A helper to generate numbers
+ * @ignore
  */
 export const NumberHelper = {
   /**

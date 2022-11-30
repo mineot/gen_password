@@ -3,6 +3,10 @@
 import { DimensionEnum } from "@enums/dimension.enum";
 import { TypeEnum } from "@enums/type.enums";
 
+/**
+ * A type and dimension settings
+ * @ignore
+ */
 export const TypeDimension = {
   [TypeEnum.ONLY_NUMBERS]: {
     [DimensionEnum.FOUR]: { min: 1000, max: 9999 },

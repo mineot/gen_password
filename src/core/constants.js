@@ -2,6 +2,7 @@
 
 /**
  * A Constants variables
+ * @ignore
  */
 export const Constants = {
   alphas: {

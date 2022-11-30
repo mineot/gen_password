@@ -8,6 +8,7 @@ import { InvalidTypeError } from "@errors/invalid-type.error";
  * @param { string } type
  * @throws { InvalidTypeError }
  * @returns { Promise<boolean> }
+ * @ignore
  */
 export const TypeValidator = async function (type) {
   const values = Object.values(TypeEnum);

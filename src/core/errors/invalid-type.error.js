@@ -5,6 +5,7 @@ import { GenPasswordError } from "@errors/gen-password.error";
 /**
  * Invalid Type Error (code: 400)
  * @augments GenPasswordError
+ * @ignore
  */
 export class InvalidTypeError extends GenPasswordError {
   /**

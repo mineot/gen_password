@@ -2,6 +2,10 @@
 
 import { FillHelper } from "@helpers/fill.helper";
 
+/**
+ * A helper to composer array
+ * @ignore
+ */
 export const ComposerHelper = {
   /**
    * Create an only alpha array
