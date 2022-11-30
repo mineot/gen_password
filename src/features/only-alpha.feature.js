@@ -21,7 +21,7 @@ const index = function () {
 
 /**
  * Get a character by index
- * @param { string } alphaList 
+ * @param { string } alphaList
  * @returns { string }
  */
 const alpha = function (alphaList) {
@@ -30,27 +30,28 @@ const alpha = function (alphaList) {
 
 /**
  * Create a single list by alpha list (upper or lower) and size
- * @param { string } alphaList 
+ * @param { string } alphaList
  * @param { number } size
  * @returns { Array }
  */
 const fill = function (alphaList, size) {
-  return Array(size).fill().map(() => alpha(alphaList));
+  return Array(size)
+    .fill()
+    .map(() => alpha(alphaList));
 };
 
 /**
  * Create a array with upper and lower alphas by size
- * @param { number } size 
+ * @param { number } size
  * @returns { Array }
  */
 const compose = (size) => {
-  return fill(base.upper, size)
-    .concat(fill(base.lower, size));
+  return fill(base.upper, size).concat(fill(base.lower, size));
 };
 
 /**
  * Feature to generate only alphas
- * @param { number } dimension 
+ * @param { number } dimension
  * @returns { Promise<string> }
  */
 export const OnlyAlphaFeature = async function (dimension) {

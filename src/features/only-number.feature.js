@@ -7,7 +7,7 @@ import { TypeEnum } from "@enums/type.enums";
 
 /**
  * Feature to generate only numbers
- * @param { number } dimension 
+ * @param { number } dimension
  * @returns { Promise<string> }
  */
 export const OnlyNumberFeature = async function (dimension) {
@@ -19,5 +19,5 @@ export const OnlyNumberFeature = async function (dimension) {
       min = Number(min);
       max = Number(max);
   }
-  return NumberHelper(max, { min }).toFixed(0);
+  return NumberHelper.range(min, max).toFixed(0);
 };

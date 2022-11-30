@@ -4,7 +4,7 @@
 export const NumberHelper = {
   /**
    * Generate a number with max target
-   * @param { number } max 
+   * @param { number } max
    * @returns { number }
    */
   max: function (max) {
@@ -13,11 +13,11 @@ export const NumberHelper = {
 
   /**
    * Generate a number between two values
-   * @param {*} min 
-   * @param {*} max 
-   * @returns 
+   * @param { number } min
+   * @param { number } max
+   * @returns { number }
    */
   range: function (min, max) {
     return Math.floor(Math.random() * (max - min) + min);
-  }
+  },
 };
