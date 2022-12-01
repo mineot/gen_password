@@ -163,7 +163,8 @@ h2, h3.subsection-title
     font-size: 30px;
     font-weight: 700;
     letter-spacing: -1px;
-    margin-bottom: 12px;
+    margin-top: 15px;
+    margin-bottom: 15px;
 }
 
 h3
@@ -292,8 +293,9 @@ tr > th:last-child { border-right: 1px solid #ddd; }
     display: block;
     padding: 4px 12px;
     margin: 0;
-    background-color: #fff;
-    color: #4D4E53;
+    background-color: #000;
+    color: #999;
+    padding: 20px;
 }
 
 .prettyprint code span.line

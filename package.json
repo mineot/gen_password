@@ -19,7 +19,7 @@
     "test": "jest",
     "build": "webpack",
     "serve": "webpack-dev-server --config ./server.config.js",
-    "doc": "jsdoc -c jsdoc.json"
+    "doc": "jsdoc -c jsdoc.json --readme ./jsdoc-template/README.md"
   },
   "jest": {
     "testEnvironment": "jsdom",
