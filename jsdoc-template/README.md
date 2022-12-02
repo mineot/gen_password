@@ -1,6 +1,6 @@
 Generate Password API
 
-## Instalation
+## Install
 
 ```
 npm i @mineot/gen_password
